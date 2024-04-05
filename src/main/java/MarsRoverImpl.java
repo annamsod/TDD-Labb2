@@ -12,7 +12,21 @@ public class MarsRoverImpl implements MarsRover {
 
     @Override
     public void move(String commands){
-        //TODO implement
+        if(commands.equalsIgnoreCase("f")){
+            switch (direction){
+                case EAST -> x++;
+                case SOUTH -> y++;
+                case WEST -> x--;
+                case NORTH -> y--;
+            }
+        } else if (commands.equalsIgnoreCase("b")) {
+            switch (direction){
+                case EAST -> x--;
+                case SOUTH -> y--;
+                case WEST -> x++;
+                case NORTH -> y++;
+            }
+        }
     }
 
     @Override
