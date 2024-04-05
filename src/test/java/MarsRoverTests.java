@@ -314,4 +314,112 @@ public class MarsRoverTests {
         //Assert
         Assertions.assertEquals(new Coordinates2D(maxDegree,3), rover.getCurrentLocation());
     }
+
+    @Test
+    public void testMovingForwardOverNorthPoleAssertPosition(){
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(1,1),Direction.NORTH);
+
+        //Act
+        rover.move("F");
+
+        //Assert
+        Assertions.assertEquals(new Coordinates2D(1+maxDegree/2,1), rover.getCurrentLocation());
+    }
+
+    @Test
+    public void testMovingForwardOverNorthPoleAssertPosition2(){
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(maxDegree/2+1,1),Direction.NORTH);
+
+        //Act
+        rover.move("F");
+
+        //Assert
+        Assertions.assertEquals(new Coordinates2D(1,1), rover.getCurrentLocation());
+    }
+
+    @Test
+    public void testMovingForwardOverNorthPoleAssertDirection(){
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(1,1),Direction.NORTH);
+
+        //Act
+        rover.move("F");
+
+        //Assert
+        Assertions.assertEquals(Direction.SOUTH, rover.getCurrentDirection());
+    }
+
+    @Test
+    public void testMovingBackwardOverNorthPoleAssertPosition(){
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(1,1),Direction.SOUTH);
+
+        //Act
+        rover.move("B");
+
+        //Assert
+        Assertions.assertEquals(new Coordinates2D(1+maxDegree/2,1), rover.getCurrentLocation());
+    }
+
+    @Test
+    public void testMovingBackwardOverNorthPoleAssertDirection(){
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(1,1),Direction.SOUTH);
+
+        //Act
+        rover.move("B");
+
+        //Assert
+        Assertions.assertEquals(Direction.NORTH, rover.getCurrentDirection());
+    }
+
+    @Test
+    public void testMovingForwardOverSouthPoleAssertPosition(){
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(1,maxDegree),Direction.SOUTH);
+
+        //Act
+        rover.move("F");
+
+        //Assert
+        Assertions.assertEquals(new Coordinates2D(1+maxDegree/2,maxDegree), rover.getCurrentLocation());
+    }
+
+    @Test
+    public void testMovingForwardOverSouthPoleAssertDirection(){
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(1,maxDegree),Direction.SOUTH);
+
+        //Act
+        rover.move("F");
+
+        //Assert
+        Assertions.assertEquals(Direction.NORTH, rover.getCurrentDirection());
+    }
+
+    @Test
+    public void testMovingBackwardOverSouthPoleAssertPosition(){
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(1,maxDegree),Direction.NORTH);
+
+        //Act
+        rover.move("B");
+
+        //Assert
+        Assertions.assertEquals(new Coordinates2D(1+maxDegree/2,maxDegree), rover.getCurrentLocation());
+    }
+
+    @Test
+    public void testMovingBackwardOverSouthPoleAssertDirection(){
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(1,maxDegree),Direction.NORTH);
+
+        //Act
+        rover.move("B");
+
+        //Assert
+        Assertions.assertEquals(Direction.SOUTH, rover.getCurrentDirection());
+    }
 }

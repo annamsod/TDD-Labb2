@@ -45,13 +45,25 @@ public class MarsRoverImpl implements MarsRover {
                 }
             }
 
+
+            // Handle movement over zero median
             if(x>maxDegree){
                 x=1;
             } else if (x<1) {
                 x=maxDegree;
             }
 
-
+            // Handle movement over the poles
+            if(y>maxDegree || y<1){
+                y=Math.abs(y-1);
+                x=(x+maxDegree/2)%maxDegree;
+                if(direction==Direction.NORTH){
+                    direction=Direction.SOUTH;
+                }
+                else{
+                    direction=Direction.NORTH;
+                }
+            }
         }
     }
 
