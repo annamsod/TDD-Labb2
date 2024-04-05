@@ -262,4 +262,30 @@ public class MarsRoverTests {
         //Assert
         Assertions.assertEquals(Direction.EAST, rover.getCurrentDirection());
     }
+
+    @Test
+    public void testMultipleCommandsAssertPosition(){
+
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(3,3),Direction.WEST);
+
+        //Act
+        rover.move("FFRBLB");
+
+        //Assert
+        Assertions.assertEquals(new Coordinates2D(2,4), rover.getCurrentLocation());
+    }
+
+    @Test
+    public void testMultipleCommandsAssertDirection(){
+
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(3,3),Direction.WEST);
+
+        //Act
+        rover.move("FFRBLB");
+
+        //Assert
+        Assertions.assertEquals(Direction.WEST, rover.getCurrentDirection());
+    }
 }
