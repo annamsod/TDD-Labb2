@@ -132,4 +132,134 @@ public class MarsRoverTests {
         //Assert
         Assertions.assertEquals(new Coordinates2D(3, 2), rover.getCurrentLocation());
     }
+
+    @Test
+    public void testTurnRightWest(){
+
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(3,3),Direction.WEST);
+
+        //Act
+        rover.move("r");
+
+        //Assert
+        Assertions.assertEquals(Direction.NORTH, rover.getCurrentDirection());
+    }
+
+    @Test
+    public void testTurnRightWestCapitalLetter(){
+
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(3,3),Direction.WEST);
+
+        //Act
+        rover.move("R");
+
+        //Assert
+        Assertions.assertEquals(Direction.NORTH, rover.getCurrentDirection());
+    }
+
+    @Test
+    public void testTurnLeftWest(){
+
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(3,3),Direction.WEST);
+
+        //Act
+        rover.move("l");
+
+        //Assert
+        Assertions.assertEquals(Direction.SOUTH, rover.getCurrentDirection());
+    }
+
+    @Test
+    public void testTurnLeftWestCapitalLetter(){
+
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(3,3),Direction.WEST);
+
+        //Act
+        rover.move("L");
+
+        //Assert
+        Assertions.assertEquals(Direction.SOUTH, rover.getCurrentDirection());
+    }
+
+    @Test
+    public void testTurnRightEast(){
+
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(3,3),Direction.EAST);
+
+        //Act
+        rover.move("r");
+
+        //Assert
+        Assertions.assertEquals(Direction.SOUTH, rover.getCurrentDirection());
+    }
+
+    @Test
+    public void testTurnLeftEast(){
+
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(3,3),Direction.EAST);
+
+        //Act
+        rover.move("l");
+
+        //Assert
+        Assertions.assertEquals(Direction.NORTH, rover.getCurrentDirection());
+    }
+
+    @Test
+    public void testTurnRightNorth(){
+
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(3,3),Direction.NORTH);
+
+        //Act
+        rover.move("r");
+
+        //Assert
+        Assertions.assertEquals(Direction.EAST, rover.getCurrentDirection());
+    }
+
+    @Test
+    public void testTurnLeftNorth(){
+
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(3,3),Direction.NORTH);
+
+        //Act
+        rover.move("l");
+
+        //Assert
+        Assertions.assertEquals(Direction.WEST, rover.getCurrentDirection());
+    }
+
+    @Test
+    public void testTurnRightSouth(){
+
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(3,3),Direction.SOUTH);
+
+        //Act
+        rover.move("r");
+
+        //Assert
+        Assertions.assertEquals(Direction.WEST, rover.getCurrentDirection());
+    }
+
+    @Test
+    public void testTurnLeftSouth(){
+
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(3,3),Direction.SOUTH);
+
+        //Act
+        rover.move("l");
+
+        //Assert
+        Assertions.assertEquals(Direction.EAST, rover.getCurrentDirection());
+    }
 }
