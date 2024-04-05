@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 
 public class MarsRoverTests {
 
+    final int maxDegree = 360;
+
     @Test
     public void testMoveForwardWest() {
 
@@ -287,5 +289,29 @@ public class MarsRoverTests {
 
         //Assert
         Assertions.assertEquals(Direction.WEST, rover.getCurrentDirection());
+    }
+
+    @Test
+    public void testMovingEastOverZeroMedian(){
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(maxDegree,3),Direction.EAST);
+
+        //Act
+        rover.move("F");
+
+        //Assert
+        Assertions.assertEquals(new Coordinates2D(1,3), rover.getCurrentLocation());
+    }
+
+    @Test
+    public void testMovingWestOverZeroMedian(){
+        //Arrange
+        MarsRover rover = new MarsRoverImpl(new Coordinates2D(1,3),Direction.WEST);
+
+        //Act
+        rover.move("F");
+
+        //Assert
+        Assertions.assertEquals(new Coordinates2D(maxDegree,3), rover.getCurrentLocation());
     }
 }

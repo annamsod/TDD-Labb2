@@ -10,6 +10,8 @@ public class MarsRoverImpl implements MarsRover {
         direction = startingDirection;
     }
 
+    final int maxDegree = 360;
+
     @Override
     public void move(String input){
         for(char commands : input.toCharArray()) {
@@ -42,6 +44,14 @@ public class MarsRoverImpl implements MarsRover {
                     case NORTH -> direction = Direction.WEST;
                 }
             }
+
+            if(x>maxDegree){
+                x=1;
+            } else if (x<1) {
+                x=maxDegree;
+            }
+
+
         }
     }
 
